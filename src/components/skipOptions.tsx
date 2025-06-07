@@ -1,3 +1,5 @@
+import { SkipOption } from "./skipOption";
+
 export const SkipOptions = () => {
   return (
     <div className="max-w-5xl mx-auto flex flex-col gap-6">
@@ -8,7 +10,9 @@ export const SkipOptions = () => {
         </p>
       </div>
 
-      <div>list skips here</div>
+      <div className="grid gri-cols-1 md:grid-cols-2 gap-6">
+        <SkipOption />
+      </div>
     </div>
   );
 };
