@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 
 //for clean data fetching
-type Response = {
-  data: any;
+type Response<T> = {
+  data: T | null;
   loading: boolean;
   error: string | null;
 };
 
-export const useFetch = (
-  fetchFn: () => Promise<any>,
+export function useFetch<T>(
+  fetchFn: () => Promise<T>,
   deps: React.DependencyList[] = [],
-): Response => {
-  const [data, setData] = useState<any>(null);
+): Response<T> {
+  const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -33,4 +33,4 @@ export const useFetch = (
   }, deps);
 
   return { data, loading, error };
-};
+}

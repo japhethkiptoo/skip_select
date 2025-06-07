@@ -1,6 +1,17 @@
-import { SkipOption } from "./skipOption";
+import { useFetch } from "../hooks/useFetch";
+import { skipOptionService } from "../services/skipOption.service";
 
 export const SkipOptions = () => {
+  const { data, loading, error } = useFetch(skipOptionService.fetchOptions, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
     <div className="max-w-5xl mx-auto flex flex-col gap-6">
       <div className=" flex flex-col items-center">
@@ -11,7 +22,8 @@ export const SkipOptions = () => {
       </div>
 
       <div className="grid gri-cols-1 md:grid-cols-2 gap-6">
-        <SkipOption />
+        {/* <SkipOption /> */}
+        {JSON.stringify(data)}
       </div>
     </div>
   );
