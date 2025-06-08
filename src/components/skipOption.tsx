@@ -47,8 +47,11 @@ export const SkipOption = (props: Props) => {
       <div className="flex justify-between">
         <div className="flex items-center gap-4">
           {/* icon */}
-          <div className="bg-[#C1C1C1]/10 rounded-full flex items-center justify-center w-20 h-20">
-            <SkipIcon size={80} selected={checked} />
+          <div
+            className=" flex items-center justify-center rounded-full bg-[#1C1C1C] border border-[#2A2A2A]
+                    text-[#0037C1] p-3"
+          >
+            <SkipIcon size={50} selected={checked} />
           </div>
 
           {/* content */}
@@ -64,7 +67,7 @@ export const SkipOption = (props: Props) => {
             </h3>
             <div className="flex items-center">
               <Calendar className="w-4 h-4 mr-2" />
-              <span className="text-sm">{hire_period}</span>
+              <span className="text-sm text-gray-400">{hire_period}</span>
             </div>
 
             {!option.allowed_on_road && (
