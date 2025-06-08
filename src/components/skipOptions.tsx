@@ -49,12 +49,12 @@ export const SkipOptions = () => {
 
   return (
     <>
-      <div className="max-w-5xl mx-auto flex flex-col gap-6 pb-32">
+      <div className="max-w-5xl mx-auto flex flex-col gap-6 pb-32 px-5 lg:px-0">
         <div className=" flex flex-col items-center">
           <h2 className="text-3xl font-bold mb-4 capitalize">
             Choose your skip size
           </h2>
-          <p className="text-xl text-gray-400">
+          <p className="text-gray-400">
             Select the skip size that best suits your needs.
           </p>
         </div>

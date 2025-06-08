@@ -39,34 +39,29 @@ export const SkipOption = (props: Props) => {
       />
 
       <div className="flex justify-between">
-        <div>
-          <span className="inline-flex items-center shadow-md rounded-full px-2 py-.5 text-sm font-medium mb-2 bg-[#0037C1] text-white">
-            {badge}
-          </span>
-          <h3 className="text-lg font-semibold capitalize mb-2 md:text-xl">
-            {title}
-          </h3>
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center shadow-md rounded-full px-2 py-.5 text-sm font-medium bg-[#0037C1] text-white">
+              {badge}
+            </span>
+          </div>
+
+          <h3 className="text-lg font-bold capitalize md:text-xl">{title}</h3>
           <p className="text-gray-400 text-sm">{hire_period}</p>
+
+          {!option.allowed_on_road && (
+            <span className="text-right inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-orange-500/20 text-orange-400 border border-orange-500/30">
+              ⚠️ Not allowed on road
+            </span>
+          )}
         </div>
 
-        <div>
-          <span className="text-xl md:text-3xl font-bold text-[#0037C1]">
+        <div className="flex">
+          <span className="text-xl md:text-2xl text-right font-bold text-[#0037C1]">
             {cost}
           </span>
         </div>
       </div>
-
-      {/* <div className="flex-1">
-        <span>{badge}</span>
-        <h3 className="text-lg font-semibold capitalize mb-2 md:text-xl">
-          {title}
-        </h3>
-        <p className="text-gray-400 text-sm">{hire_period}</p>
-
-        <span className="text-xl md:text-2xl font-bold text-[#0037C1]">
-          {cost}
-        </span>
-      </div> */}
     </label>
   );
 };
