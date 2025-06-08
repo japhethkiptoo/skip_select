@@ -23,10 +23,14 @@ export const SkipOption = (props: Props) => {
   return (
     <label
       htmlFor={id}
-      className={cn("border-2 p-6 rounded-lg transition-all cursor-pointer", {
-        "border-[#0037C1] bg-[#0037C1]/10": checked,
-        "bg-[#C1C1C1]/10 border-[#2A2A2A] hover:border-[#0037C1]/50": !checked,
-      })}
+      className={cn(
+        "border-2 p-6 rounded-lg transition-all cursor-pointer select-none",
+        {
+          "border-[#0037C1] bg-[#0037C1]/10": checked,
+          "bg-[#C1C1C1]/10 border-[#2A2A2A] hover:border-[#0037C1]/50":
+            !checked,
+        },
+      )}
     >
       <input
         id={id}
@@ -47,7 +51,9 @@ export const SkipOption = (props: Props) => {
             </span>
           </div>
 
-          <h3 className="text-lg font-bold capitalize md:text-xl">{title}</h3>
+          <h3 className="text-lg font-bold capitalize md:text-xl md:font-extrabold">
+            {title}
+          </h3>
           <div className="flex items-center">
             <Calendar className="w-4 h-4 mr-2" />
             <span className="text-sm">{hire_period}</span>
@@ -65,8 +71,8 @@ export const SkipOption = (props: Props) => {
 
         <div>
           <p className="text-right font-bold text-[#0037C1]">
-            <b>£</b>
-            <span className="text-xl font-extrabold md:text-4xl">{cost}</span>
+            <span className="text-lg">£</span>
+            <span className="text-2xl font-extrabold md:text-4xl">{cost}</span>
           </p>
         </div>
       </div>
