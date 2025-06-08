@@ -12,6 +12,11 @@ export const SkipOptions = () => {
 
   const [selectedSkip, setSelectedSkip] = useState<string | null>(null);
 
+  //selectedSkip
+  const selected_skip = data?.find(
+    (option) => String(option.id) === selectedSkip,
+  );
+
   const handleSkipChange = (event: any) => {
     const select_value = event.target.value;
     console.log(select_value, selectedSkip);
@@ -35,31 +40,52 @@ export const SkipOptions = () => {
   }
 
   return (
-    <div className="max-w-5xl mx-auto flex flex-col gap-6">
-      <div className=" flex flex-col items-center">
-        <h2 className="text-3xl font-bold mb-4 capitalize">
-          Choose your skip size
-        </h2>
-        <p className="text-xl text-gray-400">
-          Select the skip size that best suits your needs.
-        </p>
+    <>
+      <div className="max-w-5xl mx-auto flex flex-col gap-6 border">
+        <div className=" flex flex-col items-center">
+          <h2 className="text-3xl font-bold mb-4 capitalize">
+            Choose your skip size
+          </h2>
+          <p className="text-xl text-gray-400">
+            Select the skip size that best suits your needs.
+          </p>
+        </div>
+
+        <div className="grid gri-cols-1 md:grid-cols-2 gap-6">
+          {data.map((option) => (
+            <SkipOption
+              id={option.id}
+              key={option.id}
+              option={option}
+              name="skip"
+              value={option.id}
+              checked={selectedSkip === String(option.id)}
+              onChange={handleSkipChange}
+            />
+          ))}
+        </div>
       </div>
 
-      <div>{selectedSkip}</div>
+      <div className="fixed bottom-0 left-0 right-0 bg-[#1C1C1C]  border-t border-[#2A2A2A] p-4 animate-slide-up z-50">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="flex items-center">
+              <div>
+                <span className="text-sm text-gray-400 capitalize">{`${selected_skip?.size} yard skip`}</span>
+              </div>
+              <div>
+                <span className="text-2xl font-bold text-[#0037C1]">{`£${selected_skip?.price_before_vat} `}</span>
+                <span className="text-sm text-gray-400 ml-2">{`${selected_skip?.hire_period_days} day hire`}</span>
+              </div>
+            </div>
 
-      <div className="grid gri-cols-1 md:grid-cols-2 gap-6">
-        {data.map((option) => (
-          <SkipOption
-            id={option.id}
-            key={option.id}
-            option={option}
-            name="skip"
-            value={option.id}
-            checked={selectedSkip === String(option.id)}
-            onChange={handleSkipChange}
-          />
-        ))}
+            <div className="flex gap-4 items-center">
+              <button className="btn-secondary">Back</button>
+              <button className="btn-primary">Continue</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
