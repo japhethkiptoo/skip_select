@@ -81,7 +81,7 @@ export const SkipOptions = () => {
             <div className="flex flex-col md:flex-row justify-between">
               <div className="flex items-center gap-3 justify-between">
                 <div>
-                  <span className="text-sm text-gray-400 capitalize">{`${selected_skip?.size} yard skip`}</span>
+                  <span className=" text-gray-400 font-bold capitalize">{`${selected_skip?.size} yard skip`}</span>
                 </div>
                 <div>
                   <span className="text-2xl font-bold text-[#0037C1]">{`£${selected_skip?.price_before_vat} `}</span>
