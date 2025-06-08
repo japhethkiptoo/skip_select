@@ -9,19 +9,12 @@ type Props = {
   onChange: (event: any) => void;
 };
 
-export const SkipOption = ({
-  id,
-  name,
-  value,
-  checked = false,
-  option,
-  onChange,
-}: Props) => {
+export const SkipOption = (props: Props) => {
+  const { id, name, value, checked, option, onChange } = props;
+
   const title = `${option.size} yard skip`;
   const hire_period = `${option.hire_period_days} day hire period`;
   const badge = `${option.size} Yards`;
-
-  console.log(checked);
 
   return (
     <label

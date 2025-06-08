@@ -13,12 +13,13 @@ export const SkipOptions = () => {
   const [selectedSkip, setSelectedSkip] = useState<string | null>(null);
 
   const handleSkipChange = (event: any) => {
-    if (selectedSkip === event.target.value) {
+    const select_value = event.target.value;
+    console.log(select_value, selectedSkip);
+    if (selectedSkip === select_value) {
       setSelectedSkip(null);
       return;
     }
-
-    setSelectedSkip(event.target.value);
+    setSelectedSkip(select_value);
   };
 
   if (loading) {
@@ -54,7 +55,7 @@ export const SkipOptions = () => {
             option={option}
             name="skip"
             value={option.id}
-            checked={selectedSkip === option.id}
+            checked={selectedSkip === String(option.id)}
             onChange={handleSkipChange}
           />
         ))}
