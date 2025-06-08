@@ -1,6 +1,7 @@
 import { AlertTriangle, Calendar } from "lucide-react";
 import type { Skip } from "../types";
 import { cn } from "../utils/cn";
+import SkipIcon from "./skipIcon";
 
 type Props = {
   id: string;
@@ -44,33 +45,41 @@ export const SkipOption = (props: Props) => {
       />
 
       <div className="flex justify-between">
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center shadow-md rounded-full px-2 py-.5 text-sm font-medium bg-[#0037C1] text-white">
-              {badge}
-            </span>
+        <div className="flex items-center gap-4">
+          {/* icon */}
+          <div className="bg-[#C1C1C1]/10 rounded-full flex items-center justify-center w-20 h-20">
+            <SkipIcon size={80} selected={checked} />
           </div>
 
-          <h3 className="text-lg font-bold capitalize md:text-xl md:font-extrabold">
-            {title}
-          </h3>
-          <div className="flex items-center">
-            <Calendar className="w-4 h-4 mr-2" />
-            <span className="text-sm">{hire_period}</span>
-          </div>
-
-          {!option.allowed_on_road && (
-            <div className="flex items-center rounded-lg">
-              <AlertTriangle className="w-4 h-4 mr-2 text-amber-600" />
-              <span className="capitalize text-sm text-amber-600">
-                Not allowed on road
+          {/* content */}
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center shadow-md rounded-full px-2 py-.5 text-sm font-medium bg-[#0037C1] text-white">
+                {badge}
               </span>
             </div>
-          )}
+
+            <h3 className="text-lg font-bold capitalize md:text-xl md:font-extrabold">
+              {title}
+            </h3>
+            <div className="flex items-center">
+              <Calendar className="w-4 h-4 mr-2" />
+              <span className="text-sm">{hire_period}</span>
+            </div>
+
+            {!option.allowed_on_road && (
+              <div className="flex items-center rounded-lg">
+                <AlertTriangle className="w-4 h-4 mr-2 text-amber-600" />
+                <span className="capitalize text-sm text-amber-600">
+                  Not allowed on road
+                </span>
+              </div>
+            )}
+          </div>
         </div>
 
         <div>
-          <p className="text-right font-bold text-[#0037C1]">
+          <p className="text-right font-bold text-[#007bff]">
             <span className="text-lg">£</span>
             <span className="text-2xl font-extrabold md:text-4xl">{cost}</span>
           </p>
