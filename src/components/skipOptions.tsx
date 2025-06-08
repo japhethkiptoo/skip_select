@@ -43,7 +43,7 @@ export const SkipOptions = () => {
           <h2 className="text-3xl font-bold mb-4 capitalize">
             Choose your skip size
           </h2>
-          <p className="text-gray-400">
+          <p className="text-gray-400 mb-8">
             Select the skip size that best suits your needs.
           </p>
         </div>
